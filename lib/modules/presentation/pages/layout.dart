@@ -99,33 +99,54 @@ class Layout extends StatelessWidget {
                 children: [
                   // generator
                   Flexible(
-                    child: GestureDetector(
-                      onTap: () {
-                        // generate random number
-                        BlocProvider.of<CounterBloc>(context)
-                            .add(GenerateRandomNumber());
-                        // CustomSnackbar.pushSnackbar(context, 'New Number');
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.all(8.0).copyWith(right: 0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.0),
-                          color: Colors.blueGrey,
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Get Number",
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineSmall
-                                ?.copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
+                    child: BlocBuilder<SuccessBloc, SuccessState>(
+                      builder: (context, state) {
+                        if (state is SuccessInitial) {
+                          return GestureDetector(
+                            onTap: () {
+                              if (state.successCounter >=
+                                  GameConfig.winningScore) {
+                                // ask to reset
+                                CustomSnackbar.pushSnackbar(
+                                  context,
+                                  'You already won the game.\nPlease reset it to continue',
+                                  error: true,
+                                );
+                              } else {
+                                // generate random number
+                                BlocProvider.of<CounterBloc>(context)
+                                    .add(GenerateRandomNumber());
+                              }
+                            },
+                            child: Container(
+                              margin:
+                                  const EdgeInsets.all(8.0).copyWith(right: 0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                                color: state.successCounter >=
+                                        GameConfig.winningScore
+                                    ? Colors.grey
+                                    : Colors.blueAccent,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "Play",
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall
+                                      ?.copyWith(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                 ),
-                          ),
-                        ),
-                      ),
+                              ),
+                            ),
+                          );
+                        } else {
+                          return const SizedBox.shrink();
+                        }
+                      },
                     ),
                   ),
 

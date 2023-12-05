@@ -14,7 +14,7 @@ class CustomSnackbar {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(message),
-          backgroundColor: error ? Colors.red : Colors.indigo,
+          backgroundColor: error ? const Color(0xFFB31C11) : Colors.indigo,
           duration: const Duration(seconds: 2),
         ),
       );
