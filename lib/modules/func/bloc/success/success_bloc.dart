@@ -33,7 +33,7 @@ class SuccessBloc extends Bloc<SuccessEvent, SuccessState> {
     final counter = await repository.getCounter();
 
     // update state
-    emit(SuccessInitial(successCounter: counter));
+    emit(SuccessInitial(successCounter: counter ?? 0));
   }
 
   _successHandler(event, emit) async {
