@@ -74,16 +74,52 @@ class Layout extends StatelessWidget {
                       child: Center(
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            _getMessage(state.successCounter),
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineMedium
-                                ?.copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                _getMessage(state.successCounter),
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium
+                                    ?.copyWith(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                              BlocBuilder<CounterBloc, CounterState>(
+                                builder: (context, state) {
+                                  if (state is CounterInitial) {
+                                    if (state.match) {
+                                      return Text(
+                                        "+1 Score",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineMedium
+                                            ?.copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      );
+                                    } else {
+                                      return Text(
+                                        "Try Again",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineMedium
+                                            ?.copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      );
+                                    }
+                                  } else {
+                                    return const SizedBox.shrink();
+                                  }
+                                },
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -214,7 +250,7 @@ class Layout extends StatelessWidget {
     } else if (successCounter < GameConfig.winningScore) {
       return 'You have $successCounter wins!';
     } else {
-      return 'Congratulations! You won the game!';
+      return 'Congratulations!\nYou won the game!';
     }
   }
 }
