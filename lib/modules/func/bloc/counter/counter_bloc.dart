@@ -18,14 +18,13 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
   FutureOr<void> _generateRandomNumber(event, emit) {
     final current = state;
     if (current is CounterInitial) {
-      // generate random number ?
+      // generate random number
       final random = repository.getRandomNumber();
       final time = DateTime.now();
       emit(current.copyWith(
         randomNumber: random,
         time: time,
-        match: true,
-        // match: random == time.second,
+        match: random == time.second,
       ));
     }
   }
