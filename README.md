@@ -1,22 +1,19 @@
 # Demo Project - Screening Round
 
+Switch to [`Prod`](https://github.com/Rajatkumar0662/Demo2/tree/PROD) Branch to access the final code.
+
 Screening Document: [Screening Round - Coding Exercise ](<./assets/documents/Screening%20Round%20-%20Coding%20Exercise%20(1)-2.pdf>)
 
 Based on above document, following are the project architechture setup,
 
 ## Developer
 
-Name: Rajat Kumar Singh
-
-Age: 25 yrs
-
-Email: rajatkumar066@gmail.com
-
-Phone Number: [+91-8292782606](tel:+918292782606)
-
-LinkedIn: [Rajat Kumar Singh](https://www.linkedin.com/in/rajatkumar0662/)
-
-resume: [Senior Software Developer - Flutter](<./assets/documents/Resume-Rajat-Kumar-Singh%20(1).pdf>)
+- Name: Rajat Kumar Singh
+- Age: 25 yrs
+- Email: rajatkumar066@gmail.com
+- Phone Number: [+91-8292782606](tel:+918292782606)
+- LinkedIn: [Rajat Kumar Singh](https://www.linkedin.com/in/rajatkumar0662/)
+- resume: [Senior Software Developer - Flutter](<./assets/documents/Resume-Rajat-Kumar-Singh%20(1).pdf>)
 
 ## Packages
 
