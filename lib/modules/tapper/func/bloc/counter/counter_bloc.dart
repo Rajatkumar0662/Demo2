@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:demo_2/modules/data/repository/counter_repo.dart';
 import 'package:equatable/equatable.dart';
+
+import '../../../data/repository/counter_repo.dart';
 
 part 'counter_event.dart';
 part 'counter_state.dart';

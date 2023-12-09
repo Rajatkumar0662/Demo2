@@ -1,9 +1,10 @@
 import 'package:demo_2/config/game_config.dart';
-import 'package:demo_2/modules/func/bloc/counter/counter_bloc.dart';
-import 'package:demo_2/modules/func/bloc/success/success_bloc.dart';
 import 'package:demo_2/utils/custom_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../func/bloc/counter/counter_bloc.dart';
+import '../../func/bloc/success/success_bloc.dart';
 
 class Layout extends StatelessWidget {
   const Layout({

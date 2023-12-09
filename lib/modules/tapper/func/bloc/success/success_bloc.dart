@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import 'package:demo_2/modules/data/repository/counter_repo.dart';
+import '../../../data/repository/counter_repo.dart';
 
 part 'success_event.dart';
 part 'success_state.dart';

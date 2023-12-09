@@ -1,10 +1,6 @@
-import 'package:demo_2/modules/data/repository/counter_repo.dart';
-import 'package:demo_2/modules/func/bloc/counter/counter_bloc.dart';
-import 'package:demo_2/modules/func/bloc/success/success_bloc.dart';
+import 'package:demo_2/modules/tapper/tapper.dart' as tapper;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
-import '../modules/presentation/pages/layout.dart';
 
 class DynamicRoutes {
   final String name;
@@ -48,21 +44,23 @@ class DynamicRoutes {
       path: home.path,
       builder: (context, state) {
         return RepositoryProvider(
-          create: (context) => CounterRepository(),
+          create: (context) => tapper.CounterRepository(),
           child: MultiBlocProvider(
             providers: [
               BlocProvider(
-                create: (context) => CounterBloc(
-                  repository: RepositoryProvider.of<CounterRepository>(context),
+                create: (context) => tapper.CounterBloc(
+                  repository:
+                      RepositoryProvider.of<tapper.CounterRepository>(context),
                 ),
               ),
               BlocProvider(
-                create: (context) => SuccessBloc(
-                  repository: RepositoryProvider.of<CounterRepository>(context),
+                create: (context) => tapper.SuccessBloc(
+                  repository:
+                      RepositoryProvider.of<tapper.CounterRepository>(context),
                 ),
               ),
             ],
-            child: const Layout(
+            child: const tapper.Layout(
               title: 'Demo 2',
             ),
           ),
